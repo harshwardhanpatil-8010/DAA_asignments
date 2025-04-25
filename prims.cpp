@@ -3,13 +3,11 @@ using namespace std;
 class graph{
 		int cost[10][10];
 	public:
-	
 		int city;
 		void create();
 		void display();
 		void prims_algo(int s);
-		};
-		
+		};		
 	void graph::create(){
 		char ch;
 		int i,j;
@@ -42,7 +40,6 @@ class graph{
 	int nearest[20],min;
 	int mincost = 0;
 	int i, j, k, l;
-
 	nearest[s]=-1;
 	for( i=0;i<city;i++)
 	{
@@ -81,4 +78,3 @@ int main(){
 	cin>>s;
 	g.prims_algo(s);
 	}
-		

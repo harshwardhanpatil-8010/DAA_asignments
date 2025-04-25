@@ -15,7 +15,7 @@ class mobileUser
   		void display();
   		void quicksort(mobileUser num[20],int low,int high);
   		int partition(mobileUser num[20], int low, int high);
-  		 	void linear_search(mobileUser num[100], long key, int n)
+        void linear_search(mobileUser num[100], long key, int n)
    {	
 		for(int i=0; i<n; i++)
 		{

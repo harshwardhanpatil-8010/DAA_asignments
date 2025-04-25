@@ -58,7 +58,7 @@ class Queue{
 		}
 };
 
-class stack{
+class stacks{
 	int stack[100];
 	int top=-1;
 public:
@@ -141,7 +141,7 @@ public:
 	void FB::DFT(int n2)
 	{	node *temp;
 		int visited[100];
-		stack s;
+		stacks s;
 		int i;
 		
 		int v;
@@ -160,9 +160,7 @@ public:
 				while(temp!=NULL);
 				{
 					if(visited[temp->userid]==0)
-						s.push(temp->userid);
-						
-						
+						s.push(temp->userid);						
 						}
 						temp=temp->next;
 						}

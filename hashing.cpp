@@ -33,7 +33,7 @@ void student::create_wor(){
     int i;
     fstream fout;
     fout.open("student.txt",ios::binary | ios::out);
-   
+
  do{
     cout<<"Enter rollno, name and marks";
     cin>>rec.rollno>>rec.name>>rec.marks;
@@ -99,59 +99,59 @@ for(int i=0;i<=10;i++){
     }}
 
 }   
-void student::create_wr(){
-    int loc, newloc;
+void student::create_wr() {
+    int loc, newloc, temproll, tempos, i;
     char ch;
-    int temproll, temppos;
     record rec;
-    int i, key;
     fstream fout;
-    fout.open("student.txt",ios::binary | ios::out);
-   
- do{
-    cout<<"Enter rollno, name and marks ";
-    cin>>rec.rollno>>rec.name>>rec.marks;
-    fout.write((char*)&rec, sizeof(rec));
+    fout.open("student1.txt", ios::binary | ios::out);
 
-    loc=rec.rollno%10;
-    if(h[loc].rollno==-1){
-        h[loc].rollno=rec.rollno;
-        h[loc].pos=rel;
-        rel++;
-    }
-   else{
-    temproll=h[loc].rollno;
-    temppos=h[loc].pos;
-    newloc = temproll%10;
-        if(loc!=newloc)
-        {  
-            
-           
-            for(i=loc+1;i!=loc;i=(i+1)%10){
-                if(h[i].rollno==-1){
-            
-                    h[i].rollno=temproll;    
-                    h[i].pos=temppos;  
-                    rel++;        
-                    break;
+    do {
+        cout << "Enter rollno, name and marks: ";
+        cin >> rec.rollno >> rec.name >> rec.marks;
+        fout.write((char *)&rec, sizeof(rec));
+
+        loc = rec.rollno % 10;
+        if (h[loc].rollno == -1) {
+            h[loc].rollno = rec.rollno;
+            h[loc].pos = rel++;
+        } else {
+            temproll = h[loc].rollno;
+            tempos = h[loc].pos;
+            newloc = temproll % 10;
+
+            if (loc != newloc) {
+             
+                for (i = (loc + 1) % 10; i != loc; i = (i + 1) % 10) {
+                    if (h[i].rollno == -1) {
+                        h[i].rollno = temproll;
+                        h[i].pos = tempos;
+                        h[loc].rollno = rec.rollno;
+                        h[loc].pos = rel++;
+                        break;
+                    }
                 }
-          
+            } else {
+                
+                for (i = (loc + 1) % 10; i != loc; i = (i + 1) % 10) {
+                    if (h[i].rollno == -1) {
+                        h[i].rollno = rec.rollno;
+                        h[i].pos = rel++;
+                        break;
+                    }
+                }
             }
         }
-        else{
-            for(i=loc+1;i!=loc;i=(i+1)%10){
-                if(h[i].rollno == -1){
-            h[i].rollno = rec.rollno;
-            h[i].pos=rel;
-            rel++;
-            break;
-           }}}
-    }
-cout<<"do you want to continue ";
-cin>>ch;
-   }while(ch=='y');
-   fout.close();
- }
+
+        cout << "Do you want to add more records (y/n)? ";
+        cin >> ch;
+    } while (ch == 'y');
+
+    fout.close();
+}
+
+
+
 int main()
 {
     student s;
