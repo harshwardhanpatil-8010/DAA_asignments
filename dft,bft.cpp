@@ -26,7 +26,7 @@ public:
 	void DFS_r(int n2, int visited[100]);
 	
 	
-friend class stack;
+friend class stacks;
 friend class Queue;
 };
 class Queue{
@@ -69,10 +69,10 @@ public:
 		return 0;
 		}
 	int empty(){
-	if(top==-1)
-	return 1;
-	else 
-	return 0;
+		if(top==-1)
+		return 1;
+		else 
+		return 0;
 	}
 	void push(int temp){
 		if(full()==0)
@@ -150,14 +150,14 @@ public:
 		{
 			visited[i]=0;
 			}
-		while(s.pop()==0)
+		while(s.empty()==0)
 		{
 			v = s.pop();
 			if(visited[v]==0)
 				cout<<Head[v]->userid<<" "<<Head[v]->name;
 				visited[v]=1;
 			temp=Head[v]->next;
-				while(temp!=NULL);
+				while(temp!=NULL)
 				{
 					if(visited[temp->userid]==0)
 						s.push(temp->userid);						
@@ -185,7 +185,7 @@ public:
 				visited[v]=1;
 			temp=Head[v]->next;
 			while(temp!=NULL){
-			if(visited[temp->userid]=0)
+			if(visited[temp->userid]==0)
 				q.insert(temp->userid);
 				temp=temp->next;
 				

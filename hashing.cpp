@@ -32,7 +32,7 @@ void student::create_wor(){
     record rec;
     int i;
     fstream fout;
-    fout.open("student.txt",ios::binary | ios::out);
+    fout.open("students.txt",ios::binary | ios::out);
 
  do{
     cout<<"Enter rollno, name and marks";
@@ -104,7 +104,7 @@ void student::create_wr() {
     char ch;
     record rec;
     fstream fout;
-    fout.open("student1.txt", ios::binary | ios::out);
+    fout.open("student.txt", ios::binary | ios::out);
 
     do {
         cout << "Enter rollno, name and marks: ";
